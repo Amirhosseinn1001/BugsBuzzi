@@ -6,6 +6,7 @@ extends CharacterBody2D
 const SPEED = 250
 var health: int
 var direction = 0
+var changed_direction = false
 
 func _ready() -> void:
 	health = max_health
@@ -34,7 +35,7 @@ func _process(delta: float) -> void:
 func change_direction() -> void:
 	#print(name + " direction changed")
 	direction = int(!bool(direction))  # toggles between 0 and 1
-
+	changed_direction = true
 
 func _on_timer_timeout() -> void:
 	change_direction()

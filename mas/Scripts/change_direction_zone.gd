@@ -15,3 +15,12 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body.has_node("Timer"):
 		body.get_node("Timer").start()
+
+
+
+func _on_body_exited(body: Node2D) -> void:
+	if body.has_method("change_direction"):
+		if not body.changed_direction:
+			body.change_direction()
+			body.timer.stop()
+		body.changed_direction = false
