@@ -3,37 +3,40 @@
 [ext_resource type="Texture2D" uid="uid://b2w6h0ayk6h6o" path="res://Sprites/Character/Woman.png" id="1_aucph"]
 [ext_resource type="Script" uid="uid://f71hxsdv5f6e" path="res://Scripts/woman.gd" id="1_pd42f"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aucph"]
+size = Vector2(12, 26)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_pd42f"]
 atlas = ExtResource("1_aucph")
-region = Rect2(192, 96, 16, 32)
+region = Rect2(0, 96, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_30pwp"]
 atlas = ExtResource("1_aucph")
-region = Rect2(208, 96, 16, 32)
+region = Rect2(16, 96, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5rrk5"]
 atlas = ExtResource("1_aucph")
-region = Rect2(224, 96, 16, 32)
+region = Rect2(32, 96, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qjleg"]
 atlas = ExtResource("1_aucph")
-region = Rect2(240, 96, 16, 32)
+region = Rect2(48, 96, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_llpkp"]
 atlas = ExtResource("1_aucph")
-region = Rect2(192, 64, 16, 32)
+region = Rect2(0, 64, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w0yc2"]
 atlas = ExtResource("1_aucph")
-region = Rect2(208, 64, 16, 32)
+region = Rect2(16, 64, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b3hei"]
 atlas = ExtResource("1_aucph")
-region = Rect2(224, 64, 16, 32)
+region = Rect2(32, 64, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j2is8"]
 atlas = ExtResource("1_aucph")
-region = Rect2(240, 64, 16, 32)
+region = Rect2(48, 64, 16, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ir50v"]
 animations = [{
@@ -72,17 +75,19 @@ animations = [{
 "speed": 7.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_aucph"]
-size = Vector2(12, 26)
-
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_pd42f")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_ir50v")
-animation = &"move_up"
-frame_progress = 0.07594674
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_aucph")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ir50v")
+animation = &"move_left"
+autoplay = "move_left"
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

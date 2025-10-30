@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2oru8b0oo6mt"]
+
+[ext_resource type="Script" uid="uid://dw1ocjshdu0im" path="res://Scripts/change_direction_zone.gd" id="1_dfouw"]
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_dfouw")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

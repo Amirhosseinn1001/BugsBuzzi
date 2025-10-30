@@ -1,6 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://cb7gtds3etmos"]
+[gd_scene load_steps=10 format=3 uid="uid://blhy744affta6"]
 
 [ext_resource type="Texture2D" uid="uid://cmst086sy6k7k" path="res://Sprites/TileMap/tilemap.png" id="1_ebmjs"]
+[ext_resource type="PackedScene" uid="uid://dgv4g85geo7wo" path="res://Scenes/canon.tscn" id="2_wrm1d"]
+[ext_resource type="PackedScene" uid="uid://ff1ki7ul4f2q" path="res://Scenes/man.tscn" id="3_3dryh"]
+[ext_resource type="PackedScene" uid="uid://kww0tuhna5p2" path="res://Scenes/nerd.tscn" id="4_wowpa"]
+[ext_resource type="PackedScene" uid="uid://qlgf7njmlb4u" path="res://Scenes/woman.tscn" id="5_i6g32"]
+[ext_resource type="PackedScene" uid="uid://c2oru8b0oo6mt" path="res://Scenes/change_direction_zone.tscn" id="6_i6g32"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e2o6t"]
 texture = ExtResource("1_ebmjs")
@@ -540,6 +545,9 @@ texture = ExtResource("1_ebmjs")
 [sub_resource type="TileSet" id="TileSet_feb5d"]
 sources/0 = SubResource("TileSetAtlasSource_e2o6t")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1l0tm"]
+size = Vector2(184, 139.99332)
+
 [node name="Node2D" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -551,3 +559,26 @@ layer_1/tile_data = PackedInt32Array(-917510, 589824, 17, -851974, 589824, 17, -
 layer_2/name = "Layer2"
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Area2D" parent="." instance=ExtResource("2_wrm1d")]
+position = Vector2(161, 191)
+
+[node name="man" parent="." instance=ExtResource("3_3dryh")]
+position = Vector2(394, 269)
+scale = Vector2(2, 2)
+
+[node name="nerd" parent="." instance=ExtResource("4_wowpa")]
+position = Vector2(395, 300)
+scale = Vector2(2, 2)
+
+[node name="woman" parent="." instance=ExtResource("5_i6g32")]
+position = Vector2(391, 331)
+scale = Vector2(2, 2)
+
+[node name="Area2D2" parent="." instance=ExtResource("6_i6g32")]
+position = Vector2(-16, 304)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(4, 8)
+scale = Vector2(1, -0.57145596)
+shape = SubResource("RectangleShape2D_1l0tm")

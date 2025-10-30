@@ -1,13 +1,40 @@
 extends CharacterBody2D
-var health = 300
 
-# Called when the node enters the scene tree for the first time.
+@onready var timer: Timer = $Timer
+
+@export var max_health: int = 500
+const SPEED = 250
+var health: int
+var direction = 0
+
 func _ready() -> void:
-	pass # Replace with function body.
+	health = max_health
+	timer.wait_time = randf_range(0.2, 0.65)
 
-func take_damage(amount: int) ->void:
+func take_damage(amount: int) -> void:
 	health -= amount
-	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+	#print(name + " took damage! Health now:", health)
+	if health <= 0:
+		die()
+
+func die() -> void:
+	print("Enemy died!")
+	queue_free()
+
+func move(delta: float) -> void:
+	if direction == 0:
+		position.x -= SPEED * delta  # move left
+	else:
+		position.y -= SPEED * delta  # move up
+
 func _process(delta: float) -> void:
-	pass
+	move(delta)
+	#print(position)
+
+func change_direction() -> void:
+	#print(name + " direction changed")
+	direction = int(!bool(direction))  # toggles between 0 and 1
+
+
+func _on_timer_timeout() -> void:
+	change_direction()
