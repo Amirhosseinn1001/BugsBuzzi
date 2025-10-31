@@ -22,6 +22,6 @@ func update_labels():
 		CEpop_label.text = "👥 Population: %d" % Globals.EEPOPULATION
 		last_ce_pop = Globals.EEPOPULATION
 
-	if last_money != Globals.MONEY:
-		Card_label.text = "💰 Money: $%d" % Globals.MONEY
-		last_money = Globals.MONEY
+	#if last_money != Globals.MONEY:
+		#Card_label.text = "💰 Money: $%d" % Globals.MONEY
+		#last_money = Globals.MONEY

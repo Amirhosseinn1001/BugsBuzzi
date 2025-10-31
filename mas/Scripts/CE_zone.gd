@@ -30,6 +30,6 @@ func _on_body_entered(body: Node2D) -> void:
 		sprite.frame = 0
 	if body.changed:
 		Globals.POPULATION += body.damage
-		
+	body.queue_free()
 	
 		

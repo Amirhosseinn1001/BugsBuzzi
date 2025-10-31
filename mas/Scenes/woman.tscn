@@ -102,4 +102,5 @@ one_shot = true
 
 [node name="Popup" parent="." instance=ExtResource("3_30pwp")]
 
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

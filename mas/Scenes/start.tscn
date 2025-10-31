@@ -31,3 +31,13 @@ offset_top = 552.0
 offset_right = 271.0
 offset_bottom = 583.0
 text = "QUIT"
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 40.0
+offset_right = 416.0
+offset_bottom = 88.0
+placeholder_text = "Code:"
+
+[connection signal="text_submitted" from="LineEdit" to="." method="_on_line_edit_text_submitted"]

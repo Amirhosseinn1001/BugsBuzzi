@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://chfd1rf72sti5"]
+
+[ext_resource type="Texture2D" uid="uid://dl4mwa322fmyc" path="res://Sprites/Towers/Tesla.png" id="1_j8ytv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fmwch"]
+radius = 180.0
+
+[node name="TeslaTower" type="Node2D"]
+
+[node name="Tesla" type="Sprite2D" parent="."]
+texture = ExtResource("1_j8ytv")
+
+[node name="Range" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
+visible = false
+shape = SubResource("CircleShape2D_fmwch")

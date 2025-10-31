@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://cl8ddvuihtqf1"]
+
+[ext_resource type="Script" uid="uid://doc4h7skpn33x" path="res://Scripts/cannon.gd" id="1_3uv2y"]
+[ext_resource type="Texture2D" uid="uid://bxvtspjxbf378" path="res://Sprites/Towers/Cannon.png" id="1_qayxd"]
+[ext_resource type="Texture2D" uid="uid://dk5gtb2q0rjvk" path="res://Sprites/Towers/cannon-effect.png" id="2_qlvt6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qlvt6"]
+radius = 200.0
+
+[node name="Cannon" type="Node2D"]
+script = ExtResource("1_3uv2y")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2.3841858e-07, -2.3841858e-07)
+scale = Vector2(0.875, 0.875)
+texture = ExtResource("1_qayxd")
+
+[node name="effect" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(21, -15)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_qlvt6")
+
+[node name="effect2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-23, -15)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_qlvt6")
+
+[node name="Range" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
+position = Vector2(0, 5)
+shape = SubResource("CircleShape2D_qlvt6")
+
+[connection signal="body_entered" from="Range" to="." method="_on_range_body_entered"]
+[connection signal="body_exited" from="Range" to="." method="_on_range_body_exited"]

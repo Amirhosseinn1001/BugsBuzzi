@@ -1,6 +1,10 @@
 extends Node
 
-var POPULATION = 10
-var EEPOPULATION = 100
+
+
+var POPULATION = 100
+var EEPOPULATION = 40
 var MONEY = 10
 var intro_finished = false
+var code = "1"
+var private_id = "53ZOYRL0"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://cb7gtds3etmos"]
+[gd_scene load_steps=54 format=3 uid="uid://cb7gtds3etmos"]
 
 [ext_resource type="Texture2D" uid="uid://cmst086sy6k7k" path="res://Sprites/TileMap/tilemap.png" id="1_ebmjs"]
 [ext_resource type="Script" uid="uid://c2sk8xg4wb26j" path="res://Scripts/game.gd" id="1_v158k"]
@@ -9,8 +9,9 @@
 [ext_resource type="Script" uid="uid://do0vdqcl1ljg3" path="res://Scripts/npc2.gd" id="5_wowpa"]
 [ext_resource type="Script" uid="uid://ds0hpapvg4lv3" path="res://Scripts/npc.gd" id="6_1l0tm"]
 [ext_resource type="Script" uid="uid://b6wovylr6cfxq" path="res://Scripts/npc3.gd" id="6_i6g32"]
-[ext_resource type="PackedScene" path="res://Scenes/CE_zone.tscn" id="8_v158k"]
+[ext_resource type="PackedScene" uid="uid://cibq3uuoheyu8" path="res://Scenes/CE_zone.tscn" id="8_v158k"]
 [ext_resource type="PackedScene" uid="uid://c2oru8b0oo6mt" path="res://Scenes/change_direction_zone.tscn" id="10_o5yvi"]
+[ext_resource type="Script" uid="uid://82dtybi36ecj" path="res://Scenes/panel_container.gd" id="12_rku1e"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e2o6t"]
 texture = ExtResource("1_ebmjs")
@@ -2269,6 +2270,7 @@ offset_top = -420.0
 offset_right = 560.0
 offset_bottom = -360.0
 grow_vertical = 0
+script = ExtResource("12_rku1e")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
 layout_mode = 2
@@ -2286,3 +2288,9 @@ theme_override_colors/font_color = Color(0.9248999, 0.7395357, 0.5112852, 1)
 text = "Barghie : 100"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="hash" type="Label" parent="."]
+offset_left = -496.0
+offset_top = -64.0
+offset_right = -456.0
+offset_bottom = -41.0
