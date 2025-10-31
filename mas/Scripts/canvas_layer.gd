@@ -2,10 +2,10 @@ extends CanvasLayer
 signal intro_finished
 # List of messages in the intro
 @export var dialogue: Array[String] = [
-	"Salam Compie!\nMan Jahangir hastam.\nMan 10 ta az barghi ha ro be esarat\ngereftam ta lamp rahro haye\ndaneshkade moono tamir konan...",
+	"Salam Compie!\nMan Jahangir hastam.\nMan 10 ta az barghi\n ha ro be esarat\ngereftam ta lamp rahro\n haye daneshkade moono\n tamir konan...",
 	"hehehehehehe...",
-	"Man adam bi adabi nistam, vali (kheili\nkheili) bebakhshid in 'divane' ha\nmikhan be ma hamle konan...",
-	"Bia yek bar baraye hamishe az\ndasteshoon khalas shim!"
+	"Man adam bi adabi nistam, vali \n(kheili kheili) bebakhshid \nin 'divane' ha mikhan \nbe ma hamle konan...",
+	"Bia yek bar baraye \nhamishe az dasteshoon\nkhalas shim!"
 ]
 
 # Optional: portraits for each line

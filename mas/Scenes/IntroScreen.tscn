@@ -14,30 +14,30 @@ offset_bottom = 40.0
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel"]
 layout_mode = 0
-offset_left = 79.0
-offset_top = 427.0
-offset_right = 330.0
-offset_bottom = 694.0
+offset_left = 444.0
+offset_top = 233.0
+offset_right = 695.0
+offset_bottom = 500.0
 texture = ExtResource("2_qvo2s")
 expand_mode = 1
 stretch_mode = 5
 
 [node name="Label" type="Label" parent="CanvasLayer/Panel"]
 layout_mode = 0
-offset_left = -26.0
-offset_top = 700.0
-offset_right = 426.0
-offset_bottom = 790.0
-theme_override_colors/font_color = Color(0.57321864, 0.3445999, 9.62615e-08, 1)
+offset_left = 343.0
+offset_top = 520.0
+offset_right = 795.0
+offset_bottom = 610.0
+theme_override_colors/font_color = Color(0.969479, 0.5981637, 0, 1)
 theme_override_constants/line_spacing = 3
 autowrap_mode = 2
 
 [node name="Button" type="Button" parent="CanvasLayer/Panel"]
 layout_mode = 0
-offset_left = 185.0
-offset_top = 833.0
-offset_right = 230.0
-offset_bottom = 870.0
+offset_left = 547.0
+offset_top = 705.0
+offset_right = 592.0
+offset_bottom = 736.0
 theme_override_colors/font_color = Color(0.79941857, 0.3276197, 1.92523e-07, 1)
 theme_override_colors/font_focus_color = Color(0.8, 0.32941177, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.8, 0.32941177, 0, 1)
