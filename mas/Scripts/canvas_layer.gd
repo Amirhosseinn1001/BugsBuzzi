@@ -2,8 +2,8 @@ extends CanvasLayer
 
 # List of messages in the intro
 @export var dialogue: Array[String] = [
-	"Salam Compie!\nMan 10 ta az barghi ha ro be esarat\ngereftam ta lamp rahro haye\ndaneshkade moono tamir konan...",
-	"hahahahahaha...",
+	"Salam Compie!\nMan Jahangir hastam.\nMan 10 ta az barghi ha ro be esarat\ngereftam ta lamp rahro haye\ndaneshkade moono tamir konan...",
+	"hehehehehehe...",
 	"Man adam bi adabi nistam, vali (kheili\nkheili) bebakhshid in 'divane' ha\nmikhan be ma hamle konan...",
 	"Bia yek bar baraye hamishe az\ndasteshoon khalas shim!"
 ]
