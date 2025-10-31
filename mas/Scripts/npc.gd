@@ -26,6 +26,8 @@ func _process(delta: float) -> void:
 
 	if current_x > last_x:
 		sprite.play("right")
+	elif current_x < last_x:
+		sprite.play("left")
 	elif current_y < last_y:
 		sprite.play("up")
 	elif current_y > last_y:

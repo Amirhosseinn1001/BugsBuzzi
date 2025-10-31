@@ -2185,7 +2185,6 @@ scale = Vector2(1.0513134, 0.970335)
 sprite_frames = SubResource("SpriteFrames_mg4q0")
 animation = &"down"
 autoplay = "up"
-frame_progress = 0.95934814
 
 [node name="Path2D3" type="Path2D" parent="."]
 curve = SubResource("Curve2D_v158k")
