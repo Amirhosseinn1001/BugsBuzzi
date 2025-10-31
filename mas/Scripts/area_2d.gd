@@ -14,7 +14,7 @@ func _ready() -> void:
 	add_child(timer)
 	timer.wait_time = spawn_interval
 	timer.timeout.connect(_on_timer_timeout)
-	timer.start()
+	#timer.start()
 
 
 func _on_timer_timeout() -> void:

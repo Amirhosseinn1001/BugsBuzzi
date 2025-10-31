@@ -1,5 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://cb7gtds3etmos"]
-
+[gd_scene load_steps=53 format=3 uid="uid://dwsryauignfg7"]
 
 [ext_resource type="Texture2D" uid="uid://cmst086sy6k7k" path="res://Sprites/TileMap/tilemap.png" id="1_ebmjs"]
 [ext_resource type="Script" uid="uid://c2sk8xg4wb26j" path="res://Scripts/game.gd" id="1_v158k"]
@@ -7,11 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://dqvt6vrej481n" path="res://Sprites/TileMap/CE_Building2.png" id="3_3dryh"]
 [ext_resource type="PackedScene" uid="uid://bmn7vd1kpbe1g" path="res://Scenes/spawn_area.tscn" id="3_wrm1d"]
 [ext_resource type="Texture2D" uid="uid://drs2q7o6xrqmp" path="res://Sprites/TileMap/EE_Building.png" id="4_wowpa"]
-[ext_resource type="PackedScene" uid="uid://c2oru8b0oo6mt" path="res://Scenes/change_direction_zone.tscn" id="6_i6g32"]
-[ext_resource type="PackedScene" uid="uid://cibq3uuoheyu8" path="res://Scenes/CE_zone.tscn" id="8_v158k"]
-[ext_resource type="Script" uid="uid://do0vdqcl1ljg3" path="res://Scripts/npc2.gd" id="5_wowpa"]
+[ext_resource type="Script" path="res://Scripts/npc2.gd" id="5_wowpa"]
 [ext_resource type="Script" uid="uid://ds0hpapvg4lv3" path="res://Scripts/npc.gd" id="6_1l0tm"]
-[ext_resource type="Script" uid="uid://b6wovylr6cfxq" path="res://Scripts/npc3.gd" id="6_i6g32"]
+[ext_resource type="Script" path="res://Scripts/npc3.gd" id="6_i6g32"]
+[ext_resource type="PackedScene" uid="uid://cibq3uuoheyu8" path="res://Scenes/CE_zone.tscn" id="8_v158k"]
+[ext_resource type="PackedScene" uid="uid://c2oru8b0oo6mt" path="res://Scenes/change_direction_zone.tscn" id="10_o5yvi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e2o6t"]
 texture = ExtResource("1_ebmjs")
@@ -1967,6 +1966,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3dryh"]
+size = Vector2(4, 48)
+
 [sub_resource type="Curve2D" id="Curve2D_wowpa"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 218, -165, 0, 0, 0, 0, 218, -222, 0, 0, 0, 0, 218, -265, 0, 0, 0, 0, 276, -266, 0, 0, 0, 0, 320, -266, 0, 0, 0, 0, 363, -267, 0, 0, 0, 0, 402, -267, 0, 0, 0, 0, 432, -267, 0, 0, 0, 0, 431, -238, 0, 0, 0, 0, 431, -198, 0, 0, 0, 0, 424, -198, 0, 0, 0, 0, 431, -198, 0, 0, 0, 0, 431, -239, 0, 0, 0, 0, 432, -267, 0, 0, 0, 0, 218, -265, 0, 0, 0, 0, 218, -165)
@@ -1980,20 +1982,11 @@ region = Rect2(384, 240, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_rku1e"]
 atlas = ExtResource("1_ebmjs")
 region = Rect2(384, 256, 16, 16)
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3dryh"]
-size = Vector2(4, 48)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wowpa"]
-size = Vector2(144, 80)
 [sub_resource type="AtlasTexture" id="AtlasTexture_rfjv2"]
 atlas = ExtResource("1_ebmjs")
 region = Rect2(384, 272, 16, 16)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_i6g32"]
-size = Vector2(176, 40)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h4fw4"]
-size = Vector2(16, 80)
 [sub_resource type="AtlasTexture" id="AtlasTexture_1phco"]
 atlas = ExtResource("1_ebmjs")
 region = Rect2(368, 240, 16, 16)
@@ -2150,6 +2143,21 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i6g32"]
+size = Vector2(176, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h4fw4"]
+size = Vector2(16, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rku1e"]
+size = Vector2(128, 88)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rfjv2"]
+size = Vector2(1.5178623, 0.019631118)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ldgsr"]
+size = Vector2(10, 56)
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_v158k")
 
@@ -2182,9 +2190,10 @@ sprite_frames = SubResource("SpriteFrames_o5yvi")
 animation = &"left"
 autoplay = "right"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="Area2D#CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(104, 0)
 shape = SubResource("RectangleShape2D_3dryh")
+
 [node name="Path2D2" type="Path2D" parent="."]
 curve = SubResource("Curve2D_wowpa")
 
@@ -2205,9 +2214,6 @@ autoplay = "up"
 [node name="Path2D3" type="Path2D" parent="."]
 curve = SubResource("Curve2D_v158k")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3"]
-position = Vector2(-8, 20)
-shape = SubResource("RectangleShape2D_i6g32")
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D3"]
 position = Vector2(561, -377)
 rotation = -1.5730137
@@ -2220,9 +2226,36 @@ sprite_frames = SubResource("SpriteFrames_cwurv")
 animation = &"left"
 autoplay = "up"
 
+[node name="Area2D3#CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-8, 20)
+shape = SubResource("RectangleShape2D_i6g32")
+
 [node name="Area2D4" parent="." instance=ExtResource("8_v158k")]
 position = Vector2(-344, -296)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D4"]
 position = Vector2(-16, 0)
 shape = SubResource("RectangleShape2D_h4fw4")
+
+[node name="Area2D2" parent="." instance=ExtResource("10_o5yvi")]
+position = Vector2(-8, 304)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_rku1e")
+
+[node name="Area2D3" parent="." instance=ExtResource("10_o5yvi")]
+position = Vector2(9.094947e-13, -288)
+rotation = 3.1415927
+scale = Vector2(115.95238, -2445.0952)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3"]
+position = Vector2(0.06899437, 0.0032718554)
+shape = SubResource("RectangleShape2D_rfjv2")
+
+[node name="spawn" parent="." instance=ExtResource("3_wrm1d")]
+position = Vector2(520, 296)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spawn"]
+position = Vector2(-5, 12)
+shape = SubResource("RectangleShape2D_ldgsr")

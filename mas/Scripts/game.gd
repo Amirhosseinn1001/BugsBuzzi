@@ -2,10 +2,13 @@ extends Node2D
 
 @onready var music = AudioStreamPlayer.new()
 
+@onready var spawn: Area2D = $spawn
+
 func _ready():
 	# Add intro scene
 	var intro = preload("res://Scenes/IntroScreen.tscn").instantiate()
 	add_child(intro)
+	spawn.timer.start()
 
 	# Setup background music
 	music.stream = load("res://Audio/background_music_1.ogg")
