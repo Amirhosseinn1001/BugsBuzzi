@@ -1,11 +1,14 @@
 [gd_scene load_steps=34 format=3 uid="uid://cb7gtds3etmos"]
 
 [ext_resource type="Texture2D" uid="uid://cmst086sy6k7k" path="res://Sprites/TileMap/tilemap.png" id="1_ebmjs"]
+[ext_resource type="PackedScene" path="res://Scenes/NPC.tscn" id="2_qxrlw"]
 [ext_resource type="Texture2D" uid="uid://cqq4i747v7u5k" path="res://Sprites/TileMap/CE_Building.png" id="2_wrm1d"]
 [ext_resource type="Texture2D" uid="uid://dqvt6vrej481n" path="res://Sprites/TileMap/CE_Building2.png" id="3_3dryh"]
+[ext_resource type="PackedScene" uid="uid://bmn7vd1kpbe1g" path="res://Scenes/spawn_area.tscn" id="3_wrm1d"]
 [ext_resource type="Texture2D" uid="uid://drs2q7o6xrqmp" path="res://Sprites/TileMap/EE_Building.png" id="4_wowpa"]
 [ext_resource type="Script" uid="uid://do0vdqcl1ljg3" path="res://Scripts/npc2.gd" id="5_wowpa"]
 [ext_resource type="Script" uid="uid://dwv513bitchqu" path="res://Scenes/path_follow_2d.gd" id="6_i6g32"]
+[ext_resource type="PackedScene" uid="uid://c2oru8b0oo6mt" path="res://Scenes/change_direction_zone.tscn" id="6_i6g32"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e2o6t"]
 texture = ExtResource("1_ebmjs")
@@ -2074,6 +2077,15 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3dryh"]
+size = Vector2(24, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wowpa"]
+size = Vector2(160, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i6g32"]
+size = Vector2(176, 64)
+
 [node name="Node2D" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -2122,3 +2134,24 @@ sprite_frames = SubResource("SpriteFrames_mg4q0")
 animation = &"up"
 autoplay = "up"
 frame_progress = 0.028065423
+
+[node name="Area2D" parent="." instance=ExtResource("3_wrm1d")]
+position = Vector2(416, 304)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(120, 8)
+shape = SubResource("RectangleShape2D_3dryh")
+
+[node name="Area2D2" parent="." instance=ExtResource("6_i6g32")]
+position = Vector2(-8, 312)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(8, 0)
+shape = SubResource("RectangleShape2D_wowpa")
+
+[node name="Area2D3" parent="." instance=ExtResource("6_i6g32")]
+position = Vector2(0, -296)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3"]
+position = Vector2(-8, 8)
+shape = SubResource("RectangleShape2D_i6g32")

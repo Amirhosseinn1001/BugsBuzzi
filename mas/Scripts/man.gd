@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var timer: Timer = $Timer
 @export var max_health: int = 1000
 const SPEED = 100
-
+var changed_direction = false
 var health: int
 
 func _ready() -> void:
@@ -34,7 +34,7 @@ func _process(delta: float) -> void:
 func change_direction() -> void:
 	#print(name + " direction changed")
 	direction = int(!bool(direction))  # toggles between 0 and 1
-
+	changed_direction = true
 
 func _on_timer_timeout() -> void:
 	change_direction()
