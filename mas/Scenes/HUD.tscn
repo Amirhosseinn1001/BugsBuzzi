@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwe8xm1lr6cwr"]
+
+[ext_resource type="Script" uid="uid://lq6prrw2yo7t" path="res://Scripts/hud.gd" id="1_sd512"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sd512"]
+bg_color = Color(1, 0.86187375, 0.80696774, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.7138944, 0.4730233, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="Hud" type="Node2D"]
+script = ExtResource("1_sd512")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+offset_right = 181.0
+offset_bottom = 94.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_sd512")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/PanelContainer"]
+layout_mode = 2
+
+[node name="CE_pop" type="Label" parent="CanvasLayer/PanelContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6552985, 0.23167372, 0.025836395, 1)
+theme_override_font_sizes/font_size = 17
+text = "Compie : 10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EE_pop" type="Label" parent="CanvasLayer/PanelContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.654902, 0.23137255, 0.02745098, 1)
+theme_override_font_sizes/font_size = 17
+text = "Barghie : 10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="card" type="Label" parent="CanvasLayer/PanelContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.654902, 0.23137255, 0.02745098, 1)
+theme_override_font_sizes/font_size = 17
+text = "Card : 10"
+horizontal_alignment = 1
+vertical_alignment = 1
