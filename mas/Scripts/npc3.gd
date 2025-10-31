@@ -24,15 +24,12 @@ func _process(delta: float) -> void:
 	var current_x = global_position.x
 	var current_y = global_position.y
 
-	if current_x > last_x:
-		sprite.play("right")
+	
+	if current_y < last_y:
+		sprite.play("up")
 	elif current_x < last_x:
 		sprite.play("left")
-	elif current_y < last_y:
-		sprite.play("up")
-	elif current_y > last_y:
-		sprite.play("down")
-
+	
 	# Save this position for the next frame
 	last_x = current_x
 	last_y = current_y
