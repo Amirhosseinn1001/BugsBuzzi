@@ -14,8 +14,11 @@ func _ready() -> void:
 	add_child(timer)
 	timer.wait_time = spawn_interval
 	timer.timeout.connect(_on_timer_timeout)
-	#timer.start()
-
+	
+func _process(delta: float) -> void:
+	if Globals.intro_finished:
+		timer.start()
+		Globals.intro_finished = false
 
 func _on_timer_timeout() -> void:
 	active_enemies = active_enemies.filter(func(e): return is_instance_valid(e))

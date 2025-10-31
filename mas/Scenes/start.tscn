@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://kjfg88omcw2r"]
+
+[ext_resource type="Script" uid="uid://y05wpo5fxm7e" path="res://Scripts/start.gd" id="1_3bxa3"]
+[ext_resource type="Texture2D" uid="uid://crbvrvpw35udf" path="res://Sprites/unnamed.jpg" id="2_r48yj"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_3bxa3")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 1024.0
+texture = ExtResource("2_r48yj")
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 552.0
+offset_right = 125.0
+offset_bottom = 583.0
+text = "start"
+
+[node name="QuitButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 224.0
+offset_top = 552.0
+offset_right = 271.0
+offset_bottom = 583.0
+text = "QUIT"
