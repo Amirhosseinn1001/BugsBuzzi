@@ -4,11 +4,11 @@ extends Area2D
 @export var woman_scene: PackedScene
 @export var nerd_scene: PackedScene        # drag your enemy.tscn here in the Inspector
 @export var spawn_interval: float = 2.0     # seconds between spawns
-@export var max_enemies: int = 10           # how many enemies can exist at once
+@export var max_enemies: int = Globals.EEPOPULATION          # how many enemies can exist at once
 @export var spawn_area_size: Vector2 = Vector2(300, 200)  # width/height of spawn zone
 @onready var timer: Timer = Timer.new()
 var active_enemies: Array = []
-
+var amount = 50
 func _ready() -> void:
 	randomize()
 	add_child(timer)
@@ -39,6 +39,7 @@ func _on_timer_timeout() -> void:
 	enemy.scale *= 2
 	
 	print("enemy spawned")
+	#Globals.EEPOPULATION -=1
 	print(enemy.position)
 	get_parent().add_child(enemy)
 	active_enemies.append(enemy)

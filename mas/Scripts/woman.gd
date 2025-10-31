@@ -2,10 +2,10 @@ extends CharacterBody2D
 
 @onready var timer: Timer = $Timer
 @export var max_health: int = 500
-const SPEED = 150
+const SPEED = 130
 var changed_direction = false
 var health: int
-var damage = 30
+var damage = 3
 var direction = 0
 var can_move = true
 var changed
@@ -30,6 +30,7 @@ func take_damage(amount: int) -> void:
 func die() -> void:
 	print("Enemy died!")
 	Globals.MONEY += 1
+	Globals.EEPOPULATION-=1
 	queue_free()
 
 func move(delta: float) -> void:
