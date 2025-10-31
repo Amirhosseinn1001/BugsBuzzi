@@ -7,7 +7,7 @@ const SPEED = 250
 var health: int
 var direction = 0
 var changed_direction = false
-
+var damage = 10
 func _ready() -> void:
 	health = max_health
 	timer.wait_time = randf_range(0.2, 0.65)
@@ -28,8 +28,10 @@ func move(delta: float) -> void:
 	else:
 		position.y -= SPEED * delta  # move up
 
+var can_move = true
 func _process(delta: float) -> void:
-	move(delta)
+	if can_move:
+		move(delta)
 	#print(position)
 
 func change_direction() -> void:

@@ -5,7 +5,7 @@ extends CharacterBody2D
 const SPEED = 100
 var changed_direction = false
 var health: int
-
+var damage = 20
 func _ready() -> void:
 	health = max_health
 	timer.wait_time = randf_range(0.5, 1.5)
@@ -21,14 +21,17 @@ func die() -> void:
 	queue_free()
 
 func move(delta: float) -> void:
+	
 	if direction == 0:
 		position.x -= SPEED * delta  # move left
 	else:
 		position.y -= SPEED * delta  # move up
 var direction = 0  # 0 = move left, 1 = move up
 
+var can_move = true
 func _process(delta: float) -> void:
-	move(delta)
+	if can_move:
+		move(delta)
 	#print(position)
 
 func change_direction() -> void:
