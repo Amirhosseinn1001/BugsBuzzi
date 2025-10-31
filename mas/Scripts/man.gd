@@ -34,8 +34,10 @@ func die() -> void:
 func move(delta: float) -> void:
 	if direction == 0:
 		position.x -= SPEED * delta
+		$AnimatedSprite2D.play("move_left")
 	else:
 		position.y -= SPEED * delta
+		$AnimatedSprite2D.play("move_up")
 
 func _process(delta: float) -> void:
 	if can_move:

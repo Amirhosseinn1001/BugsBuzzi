@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ce4am5kqcimwa"
-path="res://.godot/imported/Tesla.jpg-c7535c3391a9f8eec2a31e09e3259363.ctex"
+uid="uid://bbipmqauyv7rd"
+path="res://.godot/imported/pointer_c_shaded.png-f20151c7e0bd11e51a0f28ce08d38d6c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Towers/Tesla.jpg"
-dest_files=["res://.godot/imported/Tesla.jpg-c7535c3391a9f8eec2a31e09e3259363.ctex"]
+source_file="res://Sprites/UI/pointer_c_shaded.png"
+dest_files=["res://.godot/imported/pointer_c_shaded.png-f20151c7e0bd11e51a0f28ce08d38d6c.ctex"]
 
 [params]
 

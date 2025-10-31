@@ -3,7 +3,7 @@ extends Node
 
 
 var POPULATION = 100
-var EEPOPULATION = 1
+var EEPOPULATION = 40
 var MONEY = 10
 var intro_finished = false
 var code = "1"

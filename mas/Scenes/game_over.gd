@@ -24,5 +24,6 @@ func _on_restart_button_pressed() -> void:
 	print("restart pressed")
 	get_tree().paused = false
 	Globals.POPULATION = 100
+	Globals.EEPOPULATION = 40
 	Globals.MONEY = 10
 	get_tree().reload_current_scene()
