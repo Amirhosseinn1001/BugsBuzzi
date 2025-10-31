@@ -16,3 +16,7 @@ func _on_start_pressed() -> void:
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_line_edit_text_submitted(new_text: String) -> void:
+	Globals.code = new_text
