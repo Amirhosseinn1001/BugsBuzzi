@@ -33,6 +33,8 @@ func _on_timer_timeout() -> void:
 
 	var enemy = enemy_scene.instantiate()
 	enemy.position = get_random_point_in_area()
+	enemy.scale *= 2
+	
 	print("enemy spawned")
 	print(enemy.position)
 	get_parent().add_child(enemy)

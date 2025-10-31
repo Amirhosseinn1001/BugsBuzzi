@@ -23,6 +23,6 @@ func _on_quit_pressed() -> void:
 func _on_restart_button_pressed() -> void:
 	print("restart pressed")
 	get_tree().paused = false
-	Globals.POPULATION = 10
+	Globals.POPULATION = 100
 	Globals.MONEY = 10
 	get_tree().reload_current_scene()

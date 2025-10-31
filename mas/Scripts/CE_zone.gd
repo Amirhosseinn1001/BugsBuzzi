@@ -28,5 +28,8 @@ func _on_body_entered(body: Node2D) -> void:
 		var sprite = body.get_node("AnimatedSprite2D")
 		sprite.stop()
 		sprite.frame = 0
+	if body.changed:
+		Globals.POPULATION += body.damage
+		
 	
 		

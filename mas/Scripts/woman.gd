@@ -1,20 +1,24 @@
 extends CharacterBody2D
 
 @onready var timer: Timer = $Timer
-
 @export var max_health: int = 500
-const SPEED = 250
-var health: int
-var direction = 0
+const SPEED = 100
 var changed_direction = false
-var damage = 10
+var health: int
+var damage = 20
+var direction = 0
+var can_move = true
+var changed
+@onready var popup: Popup = $Popup  # must exist in the scene tree
+signal clicked
+
 func _ready() -> void:
 	health = max_health
-	timer.wait_time = randf_range(0.2, 0.65)
+	timer.wait_time = randf_range(0.5, 1.5)
+	popup.hide()  # hide by default
 
 func take_damage(amount: int) -> void:
 	health -= amount
-	#print(name + " took damage! Health now:", health)
 	if health <= 0:
 		die()
 
@@ -24,20 +28,26 @@ func die() -> void:
 
 func move(delta: float) -> void:
 	if direction == 0:
-		position.x -= SPEED * delta  # move left
+		position.x -= SPEED * delta
 	else:
-		position.y -= SPEED * delta  # move up
+		position.y -= SPEED * delta
 
-var can_move = true
 func _process(delta: float) -> void:
 	if can_move:
 		move(delta)
-	#print(position)
 
 func change_direction() -> void:
-	#print(name + " direction changed")
-	direction = int(!bool(direction))  # toggles between 0 and 1
+	direction = int(!bool(direction))
 	changed_direction = true
 
 func _on_timer_timeout() -> void:
 	change_direction()
+
+func Change():
+	changed = true
+
+func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event is InputEventMouseButton and event.pressed and event.button_index == MouseButton.MOUSE_BUTTON_LEFT:
+		var offset = Vector2(40, -20)  # adjust for where you want it
+		popup.position = self.position + offset
+		popup.popup()

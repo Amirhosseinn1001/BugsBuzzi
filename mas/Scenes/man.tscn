@@ -1,7 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://ff1ki7ul4f2q"]
+[gd_scene load_steps=15 format=3 uid="uid://ff1ki7ul4f2q"]
 
 [ext_resource type="Texture2D" uid="uid://dx606oq1c3ee2" path="res://Sprites/Character/Man.png" id="1_l6lx3"]
 [ext_resource type="Script" uid="uid://bop6c26md607e" path="res://Scripts/man.gd" id="1_q5hwx"]
+[ext_resource type="PackedScene" uid="uid://6rg17qy2wmv3" path="res://Scenes/popup.tscn" id="3_pfq2x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pfq2x"]
+size = Vector2(14, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q5hwx"]
 size = Vector2(14, 32)
@@ -78,6 +82,12 @@ animations = [{
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_q5hwx")
 
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_pfq2x")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_q5hwx")
@@ -90,4 +100,8 @@ autoplay = "move_left"
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 
+[node name="Popup" parent="." instance=ExtResource("3_pfq2x")]
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

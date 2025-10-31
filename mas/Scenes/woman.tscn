@@ -1,7 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://qlgf7njmlb4u"]
+[gd_scene load_steps=15 format=3 uid="uid://qlgf7njmlb4u"]
 
 [ext_resource type="Texture2D" uid="uid://b2w6h0ayk6h6o" path="res://Sprites/Character/Woman.png" id="1_aucph"]
 [ext_resource type="Script" uid="uid://f71hxsdv5f6e" path="res://Scripts/woman.gd" id="1_pd42f"]
+[ext_resource type="PackedScene" uid="uid://6rg17qy2wmv3" path="res://Scenes/popup.tscn" id="3_30pwp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5rrk5"]
+size = Vector2(9, 25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aucph"]
 size = Vector2(12, 26)
@@ -78,6 +82,12 @@ animations = [{
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_pd42f")
 
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.5, 2.5)
+shape = SubResource("RectangleShape2D_5rrk5")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_aucph")
@@ -89,5 +99,7 @@ autoplay = "move_left"
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
+
+[node name="Popup" parent="." instance=ExtResource("3_30pwp")]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
