@@ -1,5 +1,5 @@
 extends CanvasLayer
-
+signal intro_finished
 # List of messages in the intro
 @export var dialogue: Array[String] = [
 	"Salam Compie!\nMan Jahangir hastam.\nMan 10 ta az barghi ha ro be esarat\ngereftam ta lamp rahro haye\ndaneshkade moono tamir konan...",
@@ -41,6 +41,9 @@ func _on_next_pressed() -> void:
 
 	if current_index >= dialogue.size():
 		hide()
+		intro_finished.emit()
+		Globals.intro_finished = true
+		
 
 	else:
 		show_message(current_index)
