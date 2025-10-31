@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnsha3vtyq7tt"]
+
+[ext_resource type="Script" uid="uid://dlwefmt8wf2gq" path="res://Scripts/canvas_layer.gd" id="1_kydkq"]
+[ext_resource type="Texture2D" uid="uid://c1wmv40pna3e5" path="res://Sprites/Objects/Jahangir.png" id="2_qvo2s"]
+
+[node name="IntroScreen" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("1_kydkq")
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel"]
+layout_mode = 0
+offset_left = 79.0
+offset_top = 427.0
+offset_right = 330.0
+offset_bottom = 694.0
+texture = ExtResource("2_qvo2s")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel"]
+layout_mode = 0
+offset_left = -26.0
+offset_top = 700.0
+offset_right = 426.0
+offset_bottom = 790.0
+theme_override_colors/font_color = Color(0.57321864, 0.3445999, 9.62615e-08, 1)
+theme_override_constants/line_spacing = 3
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/Panel"]
+layout_mode = 0
+offset_left = 187.0
+offset_top = 805.0
+offset_right = 232.0
+offset_bottom = 842.0
+theme_override_colors/font_color = Color(0.79941857, 0.3276197, 1.92523e-07, 1)
+theme_override_colors/font_focus_color = Color(0.8, 0.32941177, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.8, 0.32941177, 0, 1)
+theme_override_colors/font_hover_color = Color(0.8, 0.32941177, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.8, 0.32941177, 0, 1)
+theme_override_colors/font_disabled_color = Color(0.8, 0.32941177, 0, 1)
+theme_override_colors/font_outline_color = Color(0.8, 0.32941177, 0, 1)
+text = "Next"
